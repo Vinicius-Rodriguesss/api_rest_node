@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Usuários - Rotas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #1a202c;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.025em;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .routes-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .route-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .route-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #4f46e5;
+        }
+
+        .route-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .route-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .method {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .method.get {
+            background: #10b981;
+            color: white;
+        }
+
+        .method.post {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .method.put {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .method.delete {
+            background: #ef4444;
+            color: white;
+        }
+
+        .route-url {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+            word-break: break-all;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid #2d3748;
+        }
+
+        .description {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .footer {
+            background: #f7fafc;
+            padding: 24px;
+            text-align: center;
+            color: #718096;
+            border-top: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .route-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👥 API Usuários</h1>
+            <p>Rotas disponíveis para gerenciamento de usuários</p>
+        </div>
+
+        <div class="content">
+            <div class="routes-section">
+                <h2 class="section-title">📚 Endpoints da API</h2>
+
+                <!-- GET /api/users -->
+                <div class="route-card">
+                    <div class="method get">GET</div>
+                    <div class="route-url">/api/users</div>
+                    <div class="description">Lista todos os usuários cadastrados no sistema</div>
+                </div>
+
+                <!-- POST /api/users -->
+                <div class="route-card">
+                    <div class="method post">POST</div>
+                    <div class="route-url">/api/users</div>
+                    <div class="description">Cria um novo usuário no sistema</div>
+                </div>
+
+                <!-- GET /api/users/:id -->
+                <div class="route-card">
+                    <div class="method get">GET</div>
+                    <div class="route-url">/api/users/:id</div>
+                    <div class="description">Busca um usuário específico por ID</div>
+                </div>
+
+                <!-- PUT /api/users/:id -->
+                <div class="route-card">
+                    <div class="method put">PUT</div>
+                    <div class="route-url">/api/users/:id</div>
+                    <div class="description">Atualiza um usuário existente</div>
+                </div>
+
+                <!-- DELETE /api/users/:id -->
+                <div class="route-card">
+                    <div class="method delete">DELETE</div>
+                    <div class="route-url">/api/users/:id</div>
+                    <div class="description">Remove um usuário do sistema</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>API REST Node.js com Prisma | Apenas rota de usuários</p>
+        </div>
+    </div>
+</body>
+
+</html>
